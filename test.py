@@ -39,7 +39,7 @@ def index():
         chat_id = get_chat_id(msg)
         text = msg['message'].get('text' , '')
         if text == '/start':
-            sendMessage(chat_id , 'Hi {}! Enter your request:\n/Firiction_factor\n/Show\n/Help')
+            sendMessage(chat_id , 'Hi {}! Enter your request:\n/Firiction_factor\n/Show\n/Help'format(lastmessage['message']['chat']['first_name']))
         elif text == '/friction_factor':
             sendMessage(chat_id , "Enter the Reynold's number")
         #username = msg['message']['from']['username']
