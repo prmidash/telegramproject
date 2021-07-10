@@ -1,6 +1,6 @@
 import json
 import requests
-url = "https://api.telegram.org/bot1716629236:AAF48G2vsOYNv_yPOJsUUAdajdtHInlQv0w/"
+url = "https://api.telegram.org/bot1716629236:AAF48G2vsOYNv_yPOJsUUAdajdtHInlQv0w/setWebhook?url=https://fluid-mechanic.herokuapp.com/ "
 
 from flask import Flask
 from flask import request
