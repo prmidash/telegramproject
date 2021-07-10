@@ -1,17 +1,18 @@
 import json
 import requests
-url = "https://api.telegram.org/bot1716629236:AAF48G2vsOYNv_yPOJsUUAdajdtHInlQv0w/"
-
 from flask import Flask
 from flask import request
 from flask import Response
 import os
 
-app = Flask(__name__)
+url = "https://api.telegram.org/bot1716629236:AAF48G2vsOYNv_yPOJsUUAdajdtHInlQv0w/"
 
+app = Flask(__name__)
+r = {}
+r['Reynolds'] = []
 def get_all_updates():
-    response = requests.get(url + 'getUpdates')
-    return response.json()
+    all = requests.get(url + 'getUpdates')
+    return all.json()
 
 def get_last_update(allUpdates):
     return allUpdates['result'][-1]
@@ -20,25 +21,31 @@ def get_chat_id(update):
     return update['message']['chat']['id']
 
 def sendMessage(chat_id , text):
-    sendDate = {
-        'chat_id' : chat_id,
-        'text' : text,
-    }
+    sendDate = {'chat_id' : chat_id ,'text' : text,}
     response = requests.post(url + 'sendMessage' , sendDate)
     return response
+
+def sendPhoto(chat_id , photo):
+    sendData = {'chat_id' : chat_id , 'photo' : photo}
+    response = requests.post(url + 'sendPhoto' , sendData)
+    return response
+
 @app.route('/' , methods = ['POST' , 'GET'])
+
 def index():
     msg = request.get_json()
     if request.method == 'POST':
         msg = request.get_json()
         chat_id = get_chat_id(msg)
-        text = msg['message'].get('text' , '') #end of routins
+        text = msg['message'].get('text' , '')
         if text == '/start':
-            sendMessage(chat_id , 'Welcome !')
+            sendMessage(chat_id , 'Hi {}! Enter your request:\n/Firiction_factor\n/Show\n/Help')
+        elif text == '/friction_factor':
+            sendMessage(chat_id , "Enter the Reynold's number")
         #username = msg['message']['from']['username']
         return Response('ok' , status = 200)
     else:
-        return "<h1>Salam</h1>"
+        return '<p align="center"><h1><Blink>Hello Dear Chemical Engineer!</Blink></h1></p>)'
 def write_json(data , filename = 'contactlist.json'):
     with open(filename , 'w') as target:
         json.dump(data , target , indent=4 , ensure_ascii=False)
@@ -51,13 +58,3 @@ def read_json(filename = 'contactlist.json'):
 #    sendMessage(get_chat_id(lastUpdate) , 'khobam')
 write_json({})
 app.run(host= "0.0.0.0" , port=int(os.environ.get('PORT' , 5000)))
-
-
-
-
-
-
-
-
-
-
