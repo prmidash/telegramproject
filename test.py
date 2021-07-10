@@ -5,6 +5,7 @@ url = "https://api.telegram.org/bot1716629236:AAF48G2vsOYNv_yPOJsUUAdajdtHInlQv0
 from flask import Flask
 from flask import request
 from flask import Response
+import os
 
 app = Flask(__name__)
 
@@ -20,8 +21,8 @@ def get_chat_id(update):
 
 def sendMessage(chat_id , text):
     sendDate = {
-        'chat_id' : chat_id
-        'text' : text
+        'chat_id' : chat_id,
+        'text' : text,
     }
     response = requests.post(url + 'sendMessage' , sendDate)
     return response
@@ -49,7 +50,7 @@ def read_json(filename = 'contactlist.json'):
 #    lastUpdate = get_last_update(data)
 #    sendMessage(get_chat_id(lastUpdate) , 'khobam')
 write_json({})
-app.run(debug = True)
+app.run(host= "0.0.0.0" , port=int(os.environ.get('PORT' , 5000)))
 
 
 
