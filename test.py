@@ -33,7 +33,7 @@ def sendPhoto(chat_id , photo):
 
 @app.route('/')
 def index():
-    if request.methode=='POST':
+    if request.method =='POST':
         msg=request.get_json()
         chatid=chat_id(msg)
         sent=msg['message'].get('text','')
