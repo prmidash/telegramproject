@@ -46,7 +46,7 @@ def index():
         #username = msg['message']['from']['username']
         return Response('ok' , status = 200)
     else:
-        return '<p align="center"><h1><Blink>Hello Dear Chemical Engineer!</Blink></h1></p>)'
+        return '<h1 style="blinking;text-align:center;color: ##663399;" ><Blink>Hello Dear Chemical Engineer!</Blink></h1>'
 def write_json(data , filename = 'contactlist.json'):
     with open(filename , 'w') as target:
         json.dump(data , target , indent=4 , ensure_ascii=False)
