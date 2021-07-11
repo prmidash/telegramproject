@@ -5,7 +5,8 @@ from flask import request
 from flask import Response
 import os
 
-url = "https://api.telegram.org/bot1716629236:AAF48G2vsOYNv_yPOJsUUAdajdtHInlQv0w/setWebhook?url=https://fluid-mechanic.herokuapp.com/ "
+url = "https://api.telegram.org/bot1716629236:AAF48G2vsOYNv_yPOJsUUAdajdtHInlQv0w/ "
+heroku = "setWebhook?url=https://fluid-mechanic.herokuapp.com/"
 
 app = Flask(__name__)
 r = {}
