@@ -33,7 +33,11 @@ def sendPhoto(chat_id , photo):
 
 @app.route('/',methods=['POST','GET'])
 def index():
-    if request.method=='POST':
+    msg=request.get_json()
+    chatid=chat_id(msg)
+    sendMessage(chat_id , 'Hi')
+    """if request.method=='POST':
+        sendMessage(chat_id , 'Hi')
         msg=request.get_json()
         chatid=chat_id(msg)
         sent=msg['message'].get('text','')
@@ -134,7 +138,7 @@ def index():
         return Response('ok',status=200)
     else: 
         return ''
-
+"""
 def write_json(data , filename = 'Reynolds.json'):
     with open(filename , 'w') as target:
         json.dump(data , target , indent=4 , ensure_ascii=False)
