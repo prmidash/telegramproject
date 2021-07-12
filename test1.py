@@ -3,10 +3,8 @@ import requests
 import fluids
 from flask import Flask
 from flask import request
-from flask import Response
-from bs4 import BeautifulSoup
+from flask import response
 import os
-
 
 url = "https://api.telegram.org/bot1716629236:AAF48G2vsOYNv_yPOJsUUAdajdtHInlQv0w/"
 app = Flask(__name__)
