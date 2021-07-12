@@ -31,9 +31,9 @@ def sendPhoto(chat_id , photo):
     return response
     
 
-@app.route('/')
+@app.route('/',methods=['POST','GET'])
 def index():
-    if request.methode=='POST':
+    if request.methods=='POST':
         msg=request.get_json()
         chatid=chat_id(msg)
         sent=msg['message'].get('text','')
