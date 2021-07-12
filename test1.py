@@ -67,6 +67,7 @@ def index():
             sendMessage(chatid,"Enter the Density,velocity,diameter and viscosity:")
             sent=str(sent)
             sent=sent.split()
+            m=0
             for b in sent:
                 if '.' in b:
                     b=list(b)
@@ -81,12 +82,14 @@ def index():
                     sendMessage(chatid,"invalid number! please Enter again:")
                     break
                 else:
-                    ro=int(sent[0])
-                    v=int(sent[1])
-                    d=int(sent[2])
-                    vis=int(sent[3])
-            reynold=(ro*v*d)/vis
-            sendMessage(chatid,reynold)         
+                    m=1
+            if m==1:
+                ro=int(sent[0])
+                v=int(sent[1])
+                d=int(sent[2])
+                vis=int(sent[3])
+                reynold=(ro*v*d)/vis
+                sendMessage(chatid,reynold)         
         return Response('ok',status=200)
     else: 
         return ''
