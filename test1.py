@@ -53,7 +53,7 @@ def index():
                         j+=o
                     if j.isdigit()==False:
                         sendMessage(chatid,"invalid number! please Enter again:")
-                        #break
+                        break
                 elif k.isdigit()==False:
                     sendMessage(chatid,"invalid number! please Enter again:")
                     break
