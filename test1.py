@@ -90,7 +90,7 @@ def index():
                 vis=int(sent[3])
                 reynold=(ro*v*d)/vis
                 sendMessage(chatid,reynold)         
-        return Response(response='ok',status=200)
+        return Response('ok',status=200)
     else: 
         return ''
 
