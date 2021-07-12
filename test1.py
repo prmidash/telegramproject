@@ -64,70 +64,27 @@ def index():
                 h=fluids.friction.friction_factor(Re,ed)
                 sendMessage(chatid,h)
         elif '/Reynold' in sent:
-            sendMessage(chatid,"Enter the Density:")
+            sendMessage(chatid,"Enter the Density,velocity,diameter and viscosity:")
             sent=str(sent)
-            if '.' in sent:
-                sent=list(sent)
-                sent=sent.remove('.')
-                j=''
-                for o in sent:
-                    j+=o
-                if j.isdigit()==False:
-                    sendMessage(chatid,"invalid number! please Enter again:")
-                    #pass
-            elif sent.isdigit()==False:
-                sendMessage(chatid,"invalid number! please Enter again:")
-                #pass
-            else:
-                ro=int(sent)
-                sendMessage(chatid,"Enter the velocity:")
-                sent=str(sent)
-                if '.' in sent:
-                    sent=list(sent)
-                    sent=sent.remove('.')
+            sent=sent.split()
+            for b in sent:
+                if '.' in b:
+                    b=list(b)
+                    b=b.remove('.')
                     j=''
-                    for o in sent:
+                    for o in b:
                         j+=o
                     if j.isdigit()==False:
                         sendMessage(chatid,"invalid number! please Enter again:")
-                        #pass
-                elif sent.isdigit()==False:
+                        break
+                elif b.isdigit()==False:
                     sendMessage(chatid,"invalid number! please Enter again:")
-                    #pass
+                    break
                 else:
-                    v=int(sent)
-                    sendMessage(chatid,"Enter the diameter:")
-                    sent=str(sent)
-                    if '.' in sent:
-                        sent=list(sent)
-                        sent=sent.remove('.')
-                        j=''
-                        for o in sent:
-                            j+=o
-                        if j.isdigit()==False:
-                            sendMessage(chatid,"invalid number! please Enter again:")
-                            #pass
-                    elif sent.isdigit()==False:
-                        sendMessage(chatid,"invalid number! please Enter again:")
-                        #pass
-                    else:
-                        d=int(sent)
-                        sendMessage(chatid,"Enter the viscosity:")
-                        sent=str(sent)
-                    if '.' in sent:
-                        sent=list(sent)
-                        sent=sent.remove('.')
-                        j=''
-                        for o in sent:
-                            j+=o
-                        if j.isdigit()==False:
-                            sendMessage(chatid,"invalid number! please Enter again:")
-                            #pass
-                    elif sent.isdigit()==False:
-                        sendMessage(chatid,"invalid number! please Enter again:")
-                        #pass
-                    else:
-                        vis=int(sent)
+                    ro=int(sent[0])
+                    v=int(sent[1])
+                    d=int(sent[2])
+                    vis=int(sent[3])
             reynold=(ro*v*d)/vis
             sendMessage(chatid,reynold)         
         return Response('ok',status=200)
