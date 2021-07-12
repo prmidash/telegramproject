@@ -35,7 +35,7 @@ def sendPhoto(chat_id , photo):
 def index():
     msg=request.get_json()
     chatid=chat_id(msg)
-    sendMessage(chat_id , 'Hi')
+    sendMessage(chatid , 'Hi')
     """if request.method=='POST':
         sendMessage(chat_id , 'Hi')
         msg=request.get_json()
