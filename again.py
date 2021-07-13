@@ -22,19 +22,24 @@ def F(update : Update , callback : CallbackContext):
         E=E.split()
         if R[0]=='R' and E[0]=='E':
             if '.' in R[1]:
+                q=R[1]
                 R[1]=list(R[1])
                 R[1].remove('.')
                 e=''
                 for o in R[1]:
                     e+=o
                 if e.isdigit()==False:
-                    update.message.reply_text("Invalid number! Please enter again")
+                    update.message.reply_text("Invalid number! Please enter again:")
+                else:
+                    q = float(q)
+                    Reynolds=q
             elif R[1].isdigit()==False:
-                update.message.reply_text("Invalid number! Please enter again")
+                update.message.reply_text("Invalid number! Please enter again:")
             else:
                 R[1] = float(R[1])
                 Reynolds=R[1]
                 if '.' in E[1]:
+                    w=E[1]
                     E[1]=list(E[1])
                     E[1].remove('.')
                     e=''
@@ -42,6 +47,11 @@ def F(update : Update , callback : CallbackContext):
                         e+=o
                     if e.isdigit()==False:
                         update.message.reply_text("invalid number! please enter again:")
+                    else:
+                       w=float(w)
+                       roughness=w
+                       f=fluids.friction.friction_factor(Reynolds,roughness)
+                       update.message.reply_text(f)
                 elif E[1].isdigit()==False:
                     update.message.reply_text("invalid number! please enter again:")
                 else:
