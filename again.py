@@ -58,14 +58,15 @@ def F(update : Update , callback : CallbackContext):
                     E[1]=float(E[1])
                     roughness=E[1]
                     f=fluids.friction.friction_factor(Reynolds,roughness)
-                    update.message.reply_text(f'\nPlease Enter your request:\n/Friction_factor\n/Reynolds')
+                    update.message.reply_text(f)
+                    update.message.reply_text("Please Enter your request:\n/Friction_factor\n/Reynolds")
     else:
         r={}
         for a in s:
             a=a.split()
             r[a[0]]=float(a[1])
         re=((r['D'])*(r['d'])*(r['v']))/(r['vis'])  
-        update.message.reply_text(re'\nPlease Enter your request:\n/Friction_factor\n/Reynolds')
+        update.message.reply_text(re)
         update.message.reply_text("Please Enter your request:\n/Friction_factor\n/Reynolds")
 def main():
     updater = Updater("1716629236:AAF48G2vsOYNv_yPOJsUUAdajdtHInlQv0w")
