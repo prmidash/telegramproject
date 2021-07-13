@@ -63,28 +63,9 @@ def F(update : Update , callback : CallbackContext):
         r={}
         for a in s:
             a=a.split()
-            if '.' in a[1]:
-                    k=a[1]
-                    a[1]=list(a[1])
-                    a[1].remove('.')
-                    e=''
-                    for o in a[1]:
-                        e+=o
-                    if e.isdigit()==False:
-                        update.message.reply_text("invalid number! please enter again:")
-                        break
-                    else:
-                       k=float(k)
-                       r[a[0]]=float(k)
-                       re=((r['D'])*(r['d'])*(r['v']))/(r['vis'])
-                       update.message.reply_text(re) 
-            elif a[1].isdigit()==False:
-                update.message.reply_text("invalid number! please enter again:")
-                break
-            else:
-                r[a[0]]=float(a[1])
-                re=((r['D'])*(r['d'])*(r['v']))/(r['vis'])  
-                update.message.reply_text(re)
+            r[a[0]]=float(a[1])
+        re=((r['D'])*(r['d'])*(r['v']))/(r['vis'])  
+        update.message.reply_text(re)
         
 def main():
     updater = Updater("1716629236:AAF48G2vsOYNv_yPOJsUUAdajdtHInlQv0w")
