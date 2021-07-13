@@ -9,9 +9,9 @@ def start(update : Update , callback : CallbackContext):
     update.message.reply_text("Hi {}! Please Enter your request:\n/Friction_factor\n/Reynolds\n/Help".format(update.message.from_user.first_name))
 
 def Friction_factor(update : Update , callback : CallbackContext):
-    update.message.reply_text("Please Enter Reynold's and Relative roughness number like:\nR number,E number")
+    update.message.reply_text("Please enter Reynolds number and Relative roughness like:\nR number,E number")
 def Reynold(update : Update , callback : CallbackContext):
-    update.message.reply_text("please enter Density, Diameter, Velocity and Viscosity like:\nD num,d num,v num,vis num")
+    update.message.reply_text("Please enter Density, Diameter, Velocity and Viscosity like:\nD num,d num,v num,vis num")
 def F(update : Update , callback : CallbackContext):
     s=str(update.message.from_user)
     s=s.split(',')
@@ -22,15 +22,15 @@ def F(update : Update , callback : CallbackContext):
         E=E.split()
         if R[0]=='R' and E[0]=='E':
             if '.' in R[1]:
-            R[1]=list(R[1])
-            R[1].remove('.')
-            e=''
-            for o in s:
+                R[1]=list(R[1])
+                R[1].remove('.')
+                e=''
+                for o in s:
                     e+=o
-            if e.isdigit()==False:
-                update.message.reply_text("invalid number! please enter again:")
+                if e.isdigit()==False:
+                    update.message.reply_text("Invalid number! Please enter again")
             elif R[1].isdigit()==False:
-                update.message.reply_text("invalid number! please enter again:")
+                update.message.reply_text("Invalid number! Please enter again")
             else:
                 Reynolds = int(R[1])
                 if '.' in E[1]:
