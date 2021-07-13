@@ -6,7 +6,7 @@ import fluids
 
 m=0
 def start(update : Update , callback : CallbackContext):
-    update.message.reply_text("Hi {}! Please Enter your request:\n/Friction_factor\n/Reynolds\n/Help".format(update.message.from_user.first_name))
+    update.message.reply_text("Hi {}! Please Enter your request:\n/Friction_factor\n/Reynolds".format(update.message.from_user.first_name))
 
 def Friction_factor(update : Update , callback : CallbackContext):
     update.message.reply_text("Please enter Reynolds number and Relative roughness like:\nR number,E number")
@@ -59,6 +59,7 @@ def F(update : Update , callback : CallbackContext):
                     roughness=E[1]
                     f=fluids.friction.friction_factor(Reynolds,roughness)
                     update.message.reply_text(f)
+                    update.message.reply_text("Please Enter your request:\n/Friction_factor\n/Reynolds")
     else:
         r={}
         for a in s:
@@ -66,6 +67,7 @@ def F(update : Update , callback : CallbackContext):
             r[a[0]]=float(a[1])
         re=((r['D'])*(r['d'])*(r['v']))/(r['vis'])  
         update.message.reply_text(re)
+        update.message.reply_text("Please Enter your request:\n/Friction_factor\n/Reynolds")
 def main():
     updater = Updater("1716629236:AAF48G2vsOYNv_yPOJsUUAdajdtHInlQv0w")
     dispatcher = updater.dispatcher
