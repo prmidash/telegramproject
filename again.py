@@ -6,8 +6,7 @@ import fluids
 
 m=0
 def start(update : Update , callback : CallbackContext):
-    update.message.reply_text("Hi {}! Please Enter your request:\n/Friction_factor\n/Reynolds\n/Help".format(update.message.from_user.first_name))
-
+    update.message.reply_text("Hi {}! Please Enter your request:\n/Friction_factor\n/Reynolds".format(update.message.from_user.first_name))
 def Friction_factor(update : Update , callback : CallbackContext):
     update.message.reply_text("Please enter Reynolds number and Relative roughness like:\nR number,E number")
 def Reynold(update : Update , callback : CallbackContext):
@@ -29,12 +28,12 @@ def F(update : Update , callback : CallbackContext):
                 for o in R[1]:
                     e+=o
                 if e.isdigit()==False:
-                    update.message.reply_text("Invalid number! Please enter again:")
+                    update.message.reply_text("Invalid number! Please enter again")
                 else:
                     q = float(q)
                     Reynolds=q
             elif R[1].isdigit()==False:
-                update.message.reply_text("Invalid number! Please enter again:")
+                update.message.reply_text("Invalid number! Please enter again")
             else:
                 R[1] = float(R[1])
                 Reynolds=R[1]
@@ -51,7 +50,7 @@ def F(update : Update , callback : CallbackContext):
                        w=float(w)
                        roughness=w
                        f=fluids.friction.friction_factor(Reynolds,roughness)
-                       update.message.reply_text(f)
+                       update.message.reply_text(f) 
                 elif E[1].isdigit()==False:
                     update.message.reply_text("invalid number! please enter again:")
                 else:
@@ -59,6 +58,7 @@ def F(update : Update , callback : CallbackContext):
                     roughness=E[1]
                     f=fluids.friction.friction_factor(Reynolds,roughness)
                     update.message.reply_text(f)
+                    
     else:
         r={}
         for a in s:
@@ -66,6 +66,7 @@ def F(update : Update , callback : CallbackContext):
             r[a[0]]=float(a[1])
         re=((r['D'])*(r['d'])*(r['v']))/(r['vis'])  
         update.message.reply_text(re)
+        
 def main():
     updater = Updater("1716629236:AAF48G2vsOYNv_yPOJsUUAdajdtHInlQv0w")
     dispatcher = updater.dispatcher
