@@ -1,14 +1,12 @@
 import logging
 from telegram import Update
 from telegram.ext import Updater, CommandHandler, CallbackContext, MessageHandler, Filters
-from telegram import ReplyKeyboardMarkup, ReplyKeyboardRemove
 logging.basicConfig(format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO)
 import fluids
 
 m=0
 def start(update : Update , callback : CallbackContext):
     update.message.reply_text("Hi {}! Please Enter your request:\n/Friction_factor\n/Reynolds".format(update.message.from_user.first_name))
-    reply_keboard=[['Friction_factor','Reynolds']]
 def Friction_factor(update : Update , callback : CallbackContext):
     update.message.reply_text("Please enter Reynolds number and Relative roughness like:\nR number,E number")
 def Reynold(update : Update , callback : CallbackContext):
