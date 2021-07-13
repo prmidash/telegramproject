@@ -72,6 +72,7 @@ def F(update : Update , callback : CallbackContext):
                         e+=o
                     if e.isdigit()==False:
                         update.message.reply_text("invalid number! please enter again:")
+                        break
                     else:
                        k=float(k)
                        r[a[0]]=float(k)
@@ -79,6 +80,7 @@ def F(update : Update , callback : CallbackContext):
                        update.message.reply_text(re) 
             elif a[1].isdigit()==False:
                 update.message.reply_text("invalid number! please enter again:")
+                break
             else:
                 r[a[0]]=float(a[1])
                 re=((r['D'])*(r['d'])*(r['v']))/(r['vis'])  
