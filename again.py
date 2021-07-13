@@ -42,7 +42,7 @@ def F(update : Update , callback : CallbackContext):
                         e+=o
                     if e.isdigit()==False:
                         update.message.reply_text("invalid number! please enter again:")
-                elif s.isdigit()==False:
+                elif E[1].isdigit()==False:
                     update.message.reply_text("invalid number! please enter again:")
                 else:
                     E[1]=float(E[1])
