@@ -25,7 +25,7 @@ def F(update : Update , callback : CallbackContext):
                 R[1]=list(R[1])
                 R[1].remove('.')
                 e=''
-                for o in s:
+                for o in R[1]:
                     e+=o
                 if e.isdigit()==False:
                     update.message.reply_text("Invalid number! Please enter again")
@@ -38,7 +38,7 @@ def F(update : Update , callback : CallbackContext):
                     E[1]=list(E[1])
                     E[1].remove('.')
                     e=''
-                    for o in s:
+                    for o in E[1]:
                         e+=o
                     if e.isdigit()==False:
                         update.message.reply_text("invalid number! please enter again:")
