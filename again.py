@@ -53,7 +53,7 @@ def F(update : Update , callback : CallbackContext):
         r={}
         for a in s:
             a=a.split()
-            r[a[0]]=int(a[1])
+            r[a[0]]=float(a[1])
         re=((r['D'])*(r['d'])*(r['v']))/(r['vis'])  
         update.message.reply_text(re)
 def main():
