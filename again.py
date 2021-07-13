@@ -32,7 +32,7 @@ def F(update : Update , callback : CallbackContext):
             elif R[1].isdigit()==False:
                 update.message.reply_text("invalid number! please enter again:")
             else:
-                Reynolds = float(R[1])
+                Reynolds = int(R[1])
                 if '.' in E[1]:
                     E[1]=list(E[1])
                     E[1].remove('.')
@@ -44,7 +44,7 @@ def F(update : Update , callback : CallbackContext):
                 elif s.isdigit()==False:
                     update.message.reply_text("invalid number! please enter again:")
                 else:
-                    roughness=float(s[1])
+                    roughness=int(s[1])
                     f=fluids.friction.friction_factor(Reynolds,roughness)
                     update.message.reply_text(f)
     else:
