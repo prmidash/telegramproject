@@ -13,7 +13,7 @@ def Friction_factor(update : Update , callback : CallbackContext):
 def Reynold(update : Update , callback : CallbackContext):
     update.message.reply_text("Please enter Density, Diameter, Velocity and Viscosity like:\nD num,d num,v num,vis num")
 def F(update : Update , callback : CallbackContext):
-    s=str(update.message.from_user)
+    s=str(update.message)
     s=s.split(',')
     if len(s)==2:
         R=s[0]
@@ -32,7 +32,8 @@ def F(update : Update , callback : CallbackContext):
             elif R[1].isdigit()==False:
                 update.message.reply_text("Invalid number! Please enter again")
             else:
-                Reynolds = int(R[1])
+                R[1] = float(R[1])
+                Reynolds=R[1]
                 if '.' in E[1]:
                     E[1]=list(E[1])
                     E[1].remove('.')
@@ -44,7 +45,8 @@ def F(update : Update , callback : CallbackContext):
                 elif s.isdigit()==False:
                     update.message.reply_text("invalid number! please enter again:")
                 else:
-                    roughness=int(s[1])
+                    E[1]=float(E[1])
+                    roughness=E[1]
                     f=fluids.friction.friction_factor(Reynolds,roughness)
                     update.message.reply_text(f)
     else:
