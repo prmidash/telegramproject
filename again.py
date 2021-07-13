@@ -9,7 +9,7 @@ def start(update : Update , callback : CallbackContext):
     update.message.reply_text("Hi {}! Please Enter your request:\n/Friction_factor\n/Reynolds\n/Help".format(update.message.from_user.first_name))
 
 def Friction_factor(update : Update , callback : CallbackContext):
-    update.message.reply_text("Please Enter Reynold's  and Relative roughness number like:\nR number,E number")
+    update.message.reply_text("Please Enter Reynold's and Relative roughness number like:\nR number,E number")
 def Reynold(update : Update , callback : CallbackContext):
     update.message.reply_text("please enter Density, Diameter, Velocity and Viscosity like\nD num,d num,v num,vis num")
 def F(update : Update , callback : CallbackContext):
