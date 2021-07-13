@@ -13,9 +13,7 @@ def Friction_factor(update : Update , callback : CallbackContext):
 def Reynold(update : Update , callback : CallbackContext):
     update.message.reply_text("Please enter Density, Diameter, Velocity and Viscosity like:\nD num,d num,v num,vis num")
 def F(update : Update , callback : CallbackContext):
-    updater = Updater("1716629236:AAF48G2vsOYNv_yPOJsUUAdajdtHInlQv0w")
-    dispatcher = updater.dispatcher
-    s=str(dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command)))
+    s=str(update.message.text)
     s=s.split(',')
     if len(s)==2:
         R=s[0]
