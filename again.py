@@ -59,6 +59,7 @@ def main():
     dispatcher = updater.dispatcher
     dispatcher.add_handler(CommandHandler("start" , start))
     dispatcher.add_handler(CommandHandler("Friction_factor" , Friction_factor))
+    dispatcher.add_handler(CommandHandler("Reynolds" , Reynold))
     dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command,F))
     updater.start_polling()
     updater.idle()
