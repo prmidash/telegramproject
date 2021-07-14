@@ -3,6 +3,7 @@ from telegram import Update
 from telegram.ext import Updater, CommandHandler, CallbackContext, MessageHandler, Filters
 logging.basicConfig(format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO)
 import fluids
+import os
 
 m=0
 def start(update : Update , callback : CallbackContext):
@@ -74,7 +75,7 @@ def main():
     dispatcher.add_handler(CommandHandler("Friction_factor" , Friction_factor))
     dispatcher.add_handler(CommandHandler("Reynolds" , Reynold))
     dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command,F))
-    updater.start_polling()
+    start_webhook("0.0.0.0",port=int(os.environ.get('PORT' , 5000),TOKEN="1716629236:AAF48G2vsOYNv_yPOJsUUAdajdtHInlQv0w",url="https://fluid-mechanic.herokuapp.com/1716629236:AAF48G2vsOYNv_yPOJsUUAdajdtHInlQv0w"))
     updater.idle()
 
 if __name__ == "__main__":
